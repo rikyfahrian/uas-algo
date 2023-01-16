@@ -3,14 +3,19 @@
 
 using namespace std;
 
+// function
 void gamesMenu();
 string sesuaiGame(int peek);
-int gamesPrice(int peek);
+string methodPayment();
 
+// beda file
+#include "prices.h"
+
+// main
 int main()
 {
-    string idGame, inputIdGame;
-    int pick, listGame;
+    string idGame, inputIdGame, payment;
+    int pick;
 
     cout << "GAMERS MARKET" << endl;
     cout << "===================================" << endl;
@@ -27,9 +32,23 @@ int main()
     idGame = sesuaiGame(pick);
     cout << idGame;
     cin >> inputIdGame;
+    cout << endl;
+    auto half = gamesPrice(pick);
+    cout << endl;
+    cout << "PILIH CARA BAYAR" << endl;
+    cout << "======================" << endl;
+    payment = methodPayment();
 
-    listGame = gamesPrice(pick);
-    cout << listGame << endl;
+    cout << endl;
+    cout << "FORMAT ORDER" << endl;
+    cout << "=============================" << endl;
+    cout << "Pembelian         = " << half.nama << endl;
+    cout << "Nama Game         = " << half.gameNamee << endl;
+    cout << "ID/USER GAME      = " << inputIdGame << endl;
+    cout << "Metode Pembayaran = " << payment << endl;
+    cout << "Total             = " << half.harga << endl
+         << endl;
+    cout << "Thankyou, Keep Good Game !" << endl;
 
     return 0;
 }
@@ -70,73 +89,35 @@ string sesuaiGame(int peek)
     }
 }
 
-int gamesPrice(int peek)
+string methodPayment()
 {
-    int pilihan;
-    string valorant[5] = {"125VP Rp. 14.250", "420VP Rp. 47.500", "700VP RP. 76.000", "1375VP RP. 142.000", "2400VP RP. 237.500"};
-    string ml[5] = {"40Diamond Rp. 11.400", "67Diamond Rp. 19.000", "154Diamond Rp. 43.300", "200Diamond Rp. 57.000", "333Diamond Rp. 95.000"};
-    string pb[5] = {"1200Cash Rp. 10.000", "2400Cash Rp. 20.000", "6000Cash Rp. 50.000", "12000Cash Rp. 100.000", "24000Cash Rp. 200.000"};
-    string pubgm[5] = {"50UC RP. 10.000", "100UC RP. 20.000", "250UC RP. 50.000", "500UC RP. 100.000", "750UC RP. 150.000"};
-    string ff[5] = {"70Diamond Rp. 10.000", "140Diamond Rp. 20.000", "355Diamond Rp. 50.000", "720Diamond Rp. 100.000", "1450Diamond Rp. 200.000"};
+    string pilih;
+    string method[3] = {"Dana", "Gopay", "OVO"};
 
-    switch (peek)
+    for (int i = 0; i < sizeof(method) / sizeof(*method); i++)
     {
-    case 1:
-        cout << "VALORANT PRICE" << endl;
-        cout << "===================" << endl;
-        for (int i = 0; i < sizeof(valorant) / sizeof(*valorant); i++)
-        {
-            cout << i + 1 << ". " << valorant[i] << endl;
-        }
-        cout << "Chosee : ";
-        cin >> pilihan;
-        break;
-    case 2:
-        cout << "MOBILE LEGENDS PRICE" << endl;
-        cout << "===================" << endl;
-        for (int i = 0; i < sizeof(ml) / sizeof(*ml); i++)
-        {
-            cout << i + 1 << ". " << ml[i] << endl;
-        }
-        cout << "Chosee : ";
-        cin >> pilihan;
-        break;
-    case 3:
-        cout << "POINT BLANK PRICE" << endl;
-        cout << "===================" << endl;
-        for (int i = 0; i < sizeof(pb) / sizeof(*pb); i++)
-        {
-            cout << i + 1 << ". " << pb[i] << endl;
-        }
-        cout << "Chosee : ";
-        cin >> pilihan;
-
-        break;
-    case 4:
-        cout << "PUBG MOBILE PRICE" << endl;
-        cout << "===================" << endl;
-        for (int i = 0; i < sizeof(pubgm) / sizeof(*pubgm); i++)
-        {
-            cout << i + 1 << ". " << pubgm[i] << endl;
-        }
-        cout << "Chosee : ";
-        cin >> pilihan;
-        break;
-    case 5:
-        cout << "FREE FIRE PRICE" << endl;
-        cout << "===================" << endl;
-        for (int i = 0; i < sizeof(ff) / sizeof(*ff); i++)
-        {
-            cout << i + 1 << ". " << ff[i] << endl;
-        }
-        cout << "Chosee : ";
-        cin >> pilihan;
-
-        break;
-
-    default:
-        break;
+        cout << "-" << method[i] << endl;
     }
 
-    return pilihan;
+    cout << "Pilih metode pembayaran : ";
+    cin >> pilih;
+
+    if (pilih == "Dana" || pilih == "dana")
+    {
+        pilih = method[0];
+    }
+    else if (pilih == "Gopay" || pilih == "gopay")
+    {
+        pilih = method[1];
+    }
+    else if (pilih == "ovo" || pilih == "OVO")
+    {
+        pilih = method[2];
+    }
+    else
+    {
+        return "pembayaran tidak tersedia";
+    }
+
+    return pilih;
 }
