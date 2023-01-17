@@ -14,10 +14,11 @@ string methodPayment();
 // main
 int main()
 {
+    system("cls");
     string idGame, inputIdGame, payment;
     int pick;
 
-    cout << "GAMERS MARKET" << endl;
+    cout << "           GAMERS MARKET" << endl;
     cout << "===================================" << endl;
     cout << "TOP-UP YOUR GAMES HERE, FAST & TRUSTED SINCE 2018" << endl
          << endl;
@@ -46,7 +47,7 @@ int main()
     cout << "Nama Game         = " << half.gameNamee << endl;
     cout << "ID/USER GAME      = " << inputIdGame << endl;
     cout << "Metode Pembayaran = " << payment << endl;
-    cout << "Total             = " << half.harga << endl
+    cout << "Total             = Rp. " << half.harga << endl
          << endl;
     cout << "Thankyou, Keep Good Game !" << endl;
 
