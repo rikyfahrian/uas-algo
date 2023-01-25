@@ -53,11 +53,11 @@ int main()
          << endl;
 
     cout << "Mau beli lagi ?(yes/no) : ";
-    cin >> ulang;
-    if (ulang == "yes")
-    {
-        goto repeat;
-    }
+    // cin >> ulang;
+    // if (ulang == "yes")
+    // {
+    //     goto repeat;
+    // }
     cout << "Thankyou, Keep Good Game !" << endl;
 
     return 0;

@@ -227,8 +227,9 @@ auto gamesPrice(int peek)
 // main
 int main()
 {
+repeat:
     system("cls");
-    string idGame, inputIdGame, payment;
+    string idGame, inputIdGame, payment, ulang;
     int pick;
 
     cout << "           GAMERS MARKET" << endl;
@@ -262,6 +263,12 @@ int main()
     cout << "Metode Pembayaran = " << payment << endl;
     cout << "Total             = Rp. " << half.harga << endl
          << endl;
+    cout << "Mau beli lagi ?(yes/no) : ";
+    cin >> ulang;
+    if (ulang == "yes")
+    {
+        goto repeat;
+    }
     cout << "Thankyou, Keep Good Game !" << endl;
 
     return 0;
@@ -299,7 +306,7 @@ string sesuaiGame(int peek)
     }
     else
     {
-        return "masukan pilihan game dengan angka jing/ angka harus dibawah 6";
+        return "masukan pilihan game dengan angka jing / angka harus dibawah 6";
     }
 }
 
