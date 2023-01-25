@@ -14,8 +14,10 @@ string methodPayment();
 // main
 int main()
 {
+    // repeat:
     system("cls");
-    string idGame, inputIdGame, payment;
+    string idGame, inputIdGame, payment, ulang;
+
     int pick;
 
     cout << "           GAMERS MARKET" << endl;
@@ -29,7 +31,7 @@ int main()
     cout << "choose (number) : ";
     cin >> pick;
 
-    // id sesusai id game karena berbeda setiap game.
+    // id sesuai id game karena berbeda setiap game.
     idGame = sesuaiGame(pick);
     cout << idGame;
     cin >> inputIdGame;
@@ -49,6 +51,13 @@ int main()
     cout << "Metode Pembayaran = " << payment << endl;
     cout << "Total             = Rp. " << half.harga << endl
          << endl;
+
+    cout << "Mau beli lagi ?(yes/no) : ";
+    cin >> ulang;
+    if (ulang == "yes")
+    {
+        goto repeat;
+    }
     cout << "Thankyou, Keep Good Game !" << endl;
 
     return 0;
